@@ -1,16 +1,19 @@
 from setuptools import setup, find_packages
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 SHORT_DESCRIPTION = "Twitter X-Client-Transaction-Id generator written in python."
 
-with open("requirements.txt") as file:
-    dependencies = file.read().splitlines()
+dependencies = [
+    "beautifulsoup4",
+    "requests",
+]
+
 with open("README.md", "r") as file:
     DESCRIPTION = file.read()
 
 
 setup(
-    name="xclienttransaction",
+    name="fork-xclienttransaction",
     version=VERSION,
     description=SHORT_DESCRIPTION,
     long_description=DESCRIPTION,
