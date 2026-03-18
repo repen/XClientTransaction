@@ -16,7 +16,7 @@ home_page_response = handle_x_migration(session=session)
 
 # for x.com no migration is required, just simply do
 home_page = session.get(url="https://x.com")
-home_page_response = bs4.BeautifulSoup(home_page.content, 'html.parser')
+soup = bs4.BeautifulSoup(home_page.content, 'html.parser')
 
 
 # GET ondemand.s FILE RESPONSE
