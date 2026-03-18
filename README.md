@@ -23,7 +23,7 @@ Reference :
 Install XClientTransaction with pip
 
 ```python
-pip install XClientTransaction -U --no-cache-dir
+pip install fork-xclienttransaction
 ```
 
 ## Usage/Examples
