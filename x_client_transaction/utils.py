@@ -3,7 +3,12 @@ import bs4
 import math
 import base64
 from typing import Union
-from .constants import MIGRATION_REDIRECTION_REGEX, ON_DEMAND_FILE_REGEX, ON_DEMAND_FILE_URL
+from .constants import (
+    MIGRATION_REDIRECTION_REGEX,
+    ON_DEMAND_FILE_REGEX,
+    ON_DEMAND_FILE_URL,
+    ONDEMAND_HASH_PATTERN
+)
 
 
 class Math:
@@ -57,8 +62,9 @@ def get_ondemand_file_url(response: bs4.BeautifulSoup):
     file_url = None
     on_demand_file = ON_DEMAND_FILE_REGEX.search(str(response))
     if on_demand_file:
-        filename = on_demand_file.group(1)
-        file_url = ON_DEMAND_FILE_URL.format(filename=filename)
+        key = on_demand_file.group(1)
+        name = re.compile(ONDEMAND_HASH_PATTERN.format(key)).search(str(response))
+        file_url = ON_DEMAND_FILE_URL.format(filename=name.group(1))
     return file_url
 
 
